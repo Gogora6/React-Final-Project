@@ -26,6 +26,7 @@ function Profile(props) {
               src={ProfileData.avatar}
               className="rounded profile-img"
               width="155"
+              alt='Avatar'
             />
           </div>
           <div className="ml-3 w-100">
