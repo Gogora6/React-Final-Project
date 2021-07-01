@@ -1,8 +1,10 @@
+import React, { Suspense } from "react";
 import { Route, Switch, useHistory } from "react-router";
 import Navigation from "./components/navigation";
-import SignIn from "./pages/auth/SignIn";
-import SignUp from "./pages/auth/SignUp";
-import Profile from "./pages/profile";
+
+const SignIn = React.lazy(() => import("./pages/auth/SignIn"));
+const SignUp = React.lazy(() => import("./pages/auth/SignUp"));
+const Profile = React.lazy(() => import("./pages/profile"));
 
 function App() {
   const history = useHistory();
@@ -15,18 +17,20 @@ function App() {
     <div className="container">
       <Navigation />
       <Switch>
-        <Route path="/register">
-          <SignUp />
-        </Route>
-        <Route path="/login">
-          <SignIn />
-        </Route>
-        <Route path="/profile">
-          <Profile />
-        </Route>
-        <button className="btn btn-primary" onClick={onLogOut}>
-          Log out
-        </button>
+        <Suspense fallback={<div className="row">Loading...</div>}>
+          <Route path="/register">
+            <SignUp />
+          </Route>
+          <Route path="/login">
+            <SignIn />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <button className="btn btn-primary" onClick={onLogOut}>
+            Log out
+          </button>
+        </Suspense>
       </Switch>
     </div>
   );

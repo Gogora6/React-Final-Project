@@ -16,7 +16,6 @@ function Profile(props) {
   useEffect(() => {
     LoadProfileData();
   }, []);
-  console.log(ProfileData);
 
   return (
     <div className="container mt-5 d-flex justify-content-center">
