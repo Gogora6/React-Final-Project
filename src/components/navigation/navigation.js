@@ -16,6 +16,11 @@ const Navigation = (props) => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/">
+              Products
+            </NavLink>
+          </li>
           <li className="nav-item active">
             <NavLink className="nav-link" to="/register">
               Register
@@ -27,10 +32,9 @@ const Navigation = (props) => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to='/profile'>Profile</NavLink>
-          </li>
-          <li className="nav-item">
-            {/* <NavLink className="nav-link disabled">Disabled</NavLink> */}
+            <NavLink className="nav-link" to="/profile">
+              Profile
+            </NavLink>
           </li>
         </ul>
       </div>

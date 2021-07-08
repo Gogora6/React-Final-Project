@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { Route, Switch, useHistory } from "react-router";
+import ProductList from "./components/list/products";
 import Navigation from "./components/navigation";
 
 const SignIn = React.lazy(() => import("./pages/auth/SignIn"));
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/" exact>
+            <ProductList />
           </Route>
           <button className="btn btn-primary" onClick={onLogOut}>
             Log out
